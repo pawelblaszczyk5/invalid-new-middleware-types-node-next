@@ -1,5 +1,5 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import type { Route } from "./+types/home.js";
+import { Welcome } from "../welcome/welcome.js";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -7,6 +7,12 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
+
+export const loader = ({ context }: Route.LoaderArgs) => {
+  console.log(context);
+  //           ^?
+  return null;
+};
 
 export default function Home() {
   return <Welcome />;
